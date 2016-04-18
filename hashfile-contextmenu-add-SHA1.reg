@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\hashfileSHA1]
+@="Copy SHA&1"
+
+[HKEY_CLASSES_ROOT\*\shell\hashfileSHA1\command]
+@="cmd /V:ON /c \"for /f \"delims=\" %%i in ('certutil -hashfile \"%1\" SHA1^|findstr -v \":\"') do @set hash=%%i&@set /p =\"!hash: =!\"<NUL|clip\""
+
